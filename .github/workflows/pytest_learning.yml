@@ -43,6 +43,7 @@ jobs:
     - name: Run tests
       run: |
         source envgit/bin/activate
-        pytest test_df \
+        pytest test_df.py \
                --cov=main \
                --cov-report=html
+               --cov-report=term-missing
