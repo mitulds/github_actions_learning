@@ -45,5 +45,5 @@ jobs:
         source envgit/bin/activate
         pytest test_df.py \
                --cov=main \
-               --cov-report=html
+               --cov-report=html \
                --cov-report=term-missing
