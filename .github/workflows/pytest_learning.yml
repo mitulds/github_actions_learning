@@ -1,0 +1,45 @@
+name: Python automation github actions sample learning
+run-name: ${{github.actor}} started the job
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.9.13' 
+
+    - name: Create virtual environment
+      run: |
+         python3.9 -m venv envgit
+
+    - name: Install pytest
+      run: |
+        source envgit/bin/activate
+        pip install pytest
+
+    - name: Install dependencies
+      run: |
+        python -m venv envgit
+        source envgit/bin/activate
+        pip install -r requirements.txt
+
+    - name: Run Flake8 for linting
+      run: |
+        source envgit/bin/activate
+        flake8 . --count --select=E9,F63 --max-line-length=88 --show-source --statistics
+
+    - name: Run tests
+      run: |
+        source envgit/bin/activate
+        pytest -v
