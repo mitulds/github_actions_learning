@@ -1,4 +1,8 @@
 import pandas as pd
 
-df = pd.read_csv("sales.csv").drop(columns=['Unnamed: 0'])
-print(len(df.columns))
+def load_sales_data(path="sales.csv"):
+    """
+    Reads a CSV file and drops the 'Unnamed: 0' column.
+    """
+    df = pd.read_csv(path).drop(columns=["Unnamed: 0"])
+    return df
