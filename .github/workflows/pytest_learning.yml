@@ -37,7 +37,8 @@ jobs:
     - name: Run Flake8 for linting
       run: |
         source envgit/bin/activate
-        flake8 . --count --select=E9,F63 --max-line-length=88 --show-source --statistics
+        flake8 . --count --select=E9,F63  --show-source --statistics
+        flake8 . --count --max-line-length=88 --statistics
 
     - name: Run tests
       run: |
