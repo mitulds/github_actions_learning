@@ -1,6 +1,6 @@
-import pandas as pd
+import main
 
 def test_df_cols():
-    df_length = 10
-    df = pd.read_csv("sales.csv")
-    assert len(df.columns) == df_length
+    df = main.load_sales_data()
+    assert not df.empty
+    assert len(df.columns) == 10
