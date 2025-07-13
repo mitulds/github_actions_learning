@@ -29,6 +29,7 @@ def count_by_payment_type(df):
     """Returns a dictionary of counts by payment type."""
     return df['payment_type'].value_counts().to_dict()
 
+
 def apply_discount(df, discount_rate=0.10):
     """Applies a discount to total price for gold customers."""
     df = df.copy()
