@@ -8,7 +8,7 @@ def sample_df():
     return load_sample_data()
 
 def test_total_sales(sample_df):
-    assert total_sales(sample_df) == 12.35
+    assert total_sales(sample_df) == pytest.approx(12.35)
 
 def test_unique_customers(sample_df):
     assert unique_customers(sample_df) == 3
