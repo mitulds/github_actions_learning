@@ -47,3 +47,9 @@ jobs:
                --cov=main \
                --cov-report=html \
                --cov-report=term-missing
+
+    - name: Upload HTML coverage report (optional)
+      uses: actions/upload-artifact@v3
+      with:
+        name: htmlcov
+        path: htmlcov/
