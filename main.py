@@ -23,3 +23,15 @@ def average_price(df):
 
 def get_by_category(df, category):
     return df[df["category"] == category]
+
+
+def count_by_payment_type(df):
+    """Returns a dictionary of counts by payment type."""
+    return df['payment_type'].value_counts().to_dict()
+
+def apply_discount(df, discount_rate=0.10):
+    """Applies a discount to total price for gold customers."""
+    df = df.copy()
+    mask = df['customer_type'] == 'gold'
+    df.loc[mask, 'total'] = df.loc[mask, 'total'] * (1 - discount_rate)
+    return df
